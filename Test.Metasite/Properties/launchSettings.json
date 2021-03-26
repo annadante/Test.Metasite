@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Test.Metasite": {
+      "commandName": "Project",
+      "commandLineArgs": "weather --city Yerevan, Riga, Vilnius"
+    }
+  }
+}
