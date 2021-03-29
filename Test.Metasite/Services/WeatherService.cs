@@ -40,10 +40,9 @@ namespace Test.Metasite.Services
 
         private async Task AuthorizationAsync()
         {
-            if (String.IsNullOrEmpty(_token))
+            if (_token != null)
             {
-                _logger.LogError("Token is empty", _token);
-                throw new ArgumentNullException();
+                return;
             }
                 
 
@@ -53,8 +52,7 @@ namespace Test.Metasite.Services
             {
                 if (_token != null)
                 {
-                    _logger.LogError("Token is empty", _token);
-                    throw new ArgumentNullException();
+                    return;
                 }
 
                 var authorizationModel = new AuthorizationModel();
@@ -107,8 +105,7 @@ namespace Test.Metasite.Services
         {
             if (_listOfCities != null)
             {
-                _logger.LogError("List of cities is empty", _listOfCities);
-                throw new ArgumentNullException();
+                return;
             }
                
             await _semaphoreSlim.WaitAsync();
@@ -116,8 +113,7 @@ namespace Test.Metasite.Services
             {
                 if (_listOfCities != null)
                 {
-                    _logger.LogError("List of cities is empty", _listOfCities);
-                    throw new ArgumentNullException();
+                    return;
                 }
               
                 var httpRequest = new HttpRequestMessage(HttpMethod.Get, $"{_options.CurrentValue.GetCitiesUrl}");
